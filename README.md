@@ -5,7 +5,8 @@ To get started <br>
 1. cd into the folder <br>
 2. Assuming NodeJS is installed(if not please do before moving forward) use the command(no quotes) "npm install".<br>
 3. Now run the server using the command "node server.js" and navigate to url localhost:3000.<br>
-4. Enjoy!!!<br>
+4. Sample search "food", "@nytimes"
+5. Enjoy!!!<br>
 
 This is node JS based search web tool, which indexes and then searhces a corpus of tweets. The tweets can be searched with keywords, @users and #hashtags. #hashtags and @users are the links to new search actions with these terms as keywords (Clicking #node
 starts a search for tweets containing #node).
