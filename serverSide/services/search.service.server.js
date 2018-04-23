@@ -30,7 +30,7 @@ module.exports = function (app) {
     function readTextFile(req, res) {
         var request = require('request-promise');
         //change this link to directly downloaded file to the data set.
-        request.get('corpus')
+        request.get(corpus)
             .then(function (body) {
                 var csv = body;
                 parseTweets(csv);
