@@ -4,7 +4,9 @@
 module.exports = function (app) {
     var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     var stemmer = require('porter-stemmer').stemmer;
-
+    var corpus = 'https://drive.google.com/uc?export=download&id=0B71CDXE-aD6gTS10R2ZvLWpJUVk';
+    var tweetTimeStampLength = 163;
+    var tweetLength = 141;
     app.get("/api/pre", readTextFile);
     app.post("/api/search", search)
 
@@ -28,7 +30,7 @@ module.exports = function (app) {
     function readTextFile(req, res) {
         var request = require('request-promise');
         //change this link to directly downloaded file to the data set.
-        request.get('https://drive.google.com/uc?export=download&id=0B71CDXE-aD6gTS10R2ZvLWpJUVk')
+        request.get('corpus')
             .then(function (body) {
                 var csv = body;
                 parseTweets(csv);
@@ -51,11 +53,11 @@ module.exports = function (app) {
             //As size of the tweets is limited to 140 chars.
             var temp = tweets[i];
             //163 is the length of the timestamp + tweet
-            while (temp.length < 163) {
+            while (temp.length < tweetTimeStampLength) {
                 temp = temp + " " + tweets[i + 1];
                 i++;
             }
-            var result = temp.replace(/.{141}\S*\s+/g, "$&~").split(/\s+~/);
+            var result = temp.replace(/.{tweetLength}\S*\s+/g, "$&~").split(/\s+~/);
             //unique id for tweet
             id++;
 
