@@ -57,7 +57,7 @@ module.exports = function (app) {
                 temp = temp + " " + tweets[i + 1];
                 i++;
             }
-            var result = temp.replace(/.{tweetLength}\S*\s+/g, "$&~").split(/\s+~/);
+            var result = temp.replace(/.{141}\S*\s+/g, "$&~").split(/\s+~/);
             //unique id for tweet
             id++;
 
