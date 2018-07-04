@@ -9,7 +9,11 @@
     function WController($location,SearchService) {
         var vm = this;
         vm.checkConnection = checkConnection;
-        
+
+        function init() {
+            
+        }
+        init();
         function checkConnection() {
             SearchService.checkConnection()
                 .success(function (result) {
