@@ -8,17 +8,16 @@
 
     function WController($location,SearchService) {
         var vm = this;
-        vm.startSearch = startSearch;
-        //This creates the index of the data to enable search
-        function startSearch() {
-            //slick loading animation
-            $('#loader').show();
-            SearchService.startSearch()
+        vm.checkConnection = checkConnection;
+        
+        function checkConnection() {
+            SearchService.checkConnection()
                 .success(function (result) {
-                    $location.url("/search");
+                    console.log(result);
+                    console.log("Done");
                 })
-                .error(function (error) {
-                    console.log("Error in WelcomeController");
+                .error(function (err) {
+                    console.log(err);
                 })
         }
     }

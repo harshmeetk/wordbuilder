@@ -8,15 +8,11 @@
 
     function SearchService($http) {
         var api={
-            startSearch:startSearch,
-            search:search
+            checkConnection: checkConnection
         };
         return api;
-        function startSearch() {
-            return $http.get("/api/pre");
-        }
-        function search(wordsToSearch) {
-            return $http.post("/api/search",wordsToSearch);
+        function checkConnection() {
+            return $http.get("/api/checkConnection");
         }
     }
 })();
